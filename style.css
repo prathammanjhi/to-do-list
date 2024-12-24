@@ -65,8 +65,9 @@ footer{
     margin-right: 7%;
 
 }
-#item{
+#key{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin: .5em;
 }
