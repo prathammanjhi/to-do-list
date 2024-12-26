@@ -18,12 +18,22 @@ const dbRef = ref(database, "taskItem")
 const completedData = ref(database,"taskItem/completedTasks")
 // const childRef = ref(db, "tasks/task1")
 
-const inputText = document.getElementById("input-text")
-const addButton = document.getElementById("add-task")
+// Pushing data to database on click of add button or when Enter is pressed
+const inputText = document.getElementById("input-text");
+const addButton = document.getElementById("add-task");
 
+// Add event listener for 'click' on the add button
+addButton.addEventListener("click", addTask);
 
-// Pushing data to database on click of add button
-addButton.addEventListener("click", () => {
+// Add event listener for 'keydown' event to check if Enter key is pressed
+inputText.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    addTask();
+  }
+});
+
+// Function to add task
+function addTask() {
   // Check if inputText.value is not empty or only whitespace
   if (inputText.value.trim() !== "") {
     const newTask = {
@@ -35,7 +45,7 @@ addButton.addEventListener("click", () => {
   } else {
     alert("Please enter a value before adding."); // Optional feedback
   }
-});
+}
 
 
 // getting the data array from database - Elements
@@ -91,7 +101,7 @@ onValue(dbRef, (snapshot) => {
         
         // Create an <li> element for each task
         const li = document.createElement("li");
-        li.id = key; // Use the key as the id for easy reference
+        li.id = "key"; // Use the key as the id for easy reference
         li.innerHTML = `
           <div class="functions">
             <input type="checkbox" class="checkbox" id="checkbox-${key}" ${task.completed ? 'checked' : ''}>
@@ -128,17 +138,17 @@ onValue(dbRef, (snapshot) => {
   }
            
 
-  // // Function to delete a task
-  // function deleteTask(taskId) {
-  //   const taskRef = ref(database, `taskItem/${taskId}`);
-  //   remove(taskRef)
-  //     .then(() => {
-  //       console.log(`Task ${taskId} deleted successfully.`);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error deleting task:", error);
-  //     });
-  // }
+  // Function to delete a task
+  function deleteTask(taskId) {
+    const taskRef = ref(database, `taskItem/${taskId}`);
+    remove(taskRef)
+      .then(() => {
+        console.log(`Task ${taskId} deleted successfully.`);
+      })
+      .catch((error) => {
+        console.error("Error deleting task:", error);
+      });
+  }
 
 
 
