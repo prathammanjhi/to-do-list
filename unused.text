@@ -1,0 +1,114 @@
+// // getting total no of elements present in db
+// onValue(dbRef, (snapshot) => {
+//   const data = snapshot.val();
+//   const taskIDs = Object.keys(data) // Get all keys (IDs) from the data
+//   const taskData = Object.values(data) // get all the values
+//   const dataLength = taskIDs.length
+//   const dataArray = Object.values(data);
+//   // console.log(data,":data")
+//   // console.log(taskData)
+//   // console.log(dataLength+":dataLength")
+//   // console.log("Real-time Array:", dataArray);
+//   // console.log(taskIDs.length);
+
+//   for(let i = 0;i<dataLength;i++){
+//     taskData[i] = ref(database, "check")
+//   }
+
+// })
+
+// getting total no of elements present in db
+                  // onValue(dbRef, (snapshot) => {
+                  // const data = snapshot.val();
+                  // const taskIDs = Object.keys(data) // Get all keys (IDs) from the data
+                  // const taskData = Object.values(data) // get all the values
+                  // const dataLength = taskIDs.length
+                  // const dataArray = Object.values(data);
+                  // // console.log(data,":data")
+                  // // console.log(taskData)
+                  // // console.log(dataLength+":dataLength")
+                  // // console.log("Real-time Array:", dataArray);
+                  // // console.log(taskIDs.length);
+
+                  // // Assuming dataLength represents the number of tasks
+                  // const taskLines = document.querySelectorAll(".task-line"); // Select all task-line elements
+                  // const checkboxes = document.querySelectorAll(".checkbox"); // Select all checkboxes
+
+                  // for (let i = 0; i < dataLength; i++) {
+                    
+                  //   if (check) {
+                  //     check.addEventListener("change", () => {
+                  //       if (check.checked) {
+                  //         let value = "done";
+                  //         console.log(taskLine.textContent + " : " + value);
+                  //       } else {
+                  //         let value = "not done";
+                  //         console.log(taskLine.textContent + " : " + value);
+                  //       }
+                  //     });
+                  //   }
+                  // }
+
+                  //   // pushing data of checkbox if checked to database
+                  //   // const check = document.getElementById("checkbox")
+                  //   // check.addEventListener("change",()=>{
+                  //   //   let value = "done"
+                  //   //   // taskData[i] = ref(database, `${value}`)
+                  //   //   console.log("done")
+                  //   // })
+                  // }) 
+                  
+                  addButton.addEventListener("click", () => {
+                  // pushing data of checkbox if checked to database
+                  const check = document.getElementById("checkbox")
+                  check.addEventListener("change",()=>{
+                    let value = "done"
+                    // taskData[i] = ref(database, `${value}`)
+                    console.log("done")
+                  })
+                })
+
+
+                function render(tasks){
+    
+  onValue(dbRef, (snapshot) => {
+      const data = snapshot.val() || {}; // Fallback to an empty object
+      const dataArray = Object.values(data);
+      const taskList = document.getElementById("ul-el")
+      taskList.innerHTML = ""; // Clear the list before updating
+
+      if (data) {}
+          const dataKey = Object.keys(data)
+          dataKey.forEach((key) => {
+          const task = data[key];
+
+          // Create an <li> element for each task
+          const li = document.createElement("li");
+          li.id = "key"; // Use the key as the id for easy reference
+          li.innerHTML = `
+          <div class="functions">
+          <input type="checkbox" id="checkbox" class="checkbox">
+          <p id = "task-line">${task}</p>
+          </div>
+          <div class="modifications">
+          <button class="deleteButton"><i class="fas fa-trash"></i></button>
+          <button class="editButton"><i class="fas fa-edit"></i></button>
+          </div>
+          `;
+
+          
+          // Append the task to the list
+                    taskList.appendChild(li);
+      
+          // Attach event listener to the delete button
+                  const deleteButton = li.querySelector(".deleteButton");
+                  deleteButton.addEventListener("click", () => {
+                  deleteTask(key);
+                })
+        
+                
+        })
+
+})
+
+}

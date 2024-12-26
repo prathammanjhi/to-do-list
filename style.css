@@ -20,6 +20,7 @@ main{
     display: flex;
     justify-content: center;
     margin-bottom: 0;
+    background: rgb(255, 204, 255);
 }
 .main{
     width: 90%;
@@ -70,4 +71,24 @@ footer{
     display: flex;
     justify-content: space-between;
     margin: .5em;
+}
+
+#analysis{
+    margin-left: .5em;
+}
+
+.functions{
+    display: flex;
+}
+.checkedLine{
+    text-decoration-line: line-through;
+    text-decoration-color: grey;
+    color: grey;
+}
+
+.modifications{
+    display: flex;
+}
+.editButton{
+    margin-left: 0.3125em;
 }
