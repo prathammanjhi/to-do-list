@@ -57,9 +57,7 @@ onValue(dbRef, (snapshot) => {
   });
 
 
-  let isCheckboxChanging = false;  // Flag to check if checkbox change is in progress
-
-
+// updating checkbox data
   function updateTaskStatus(taskId, isCompleted) {
     const taskRef = ref(database, `taskItem/${taskId}`);
     
@@ -67,6 +65,7 @@ onValue(dbRef, (snapshot) => {
     off(taskRef);  // Temporarily stop listening for changes
 
     // Fetch the task data from Firebase (since you need both text and completed status)
+    // Here we are also setting the value true or false of is complete in db
     onValue(taskRef, (snapshot) => {
         const task = snapshot.val();  // Retrieve task data from Firebase
         
@@ -151,20 +150,3 @@ onValue(dbRef, (snapshot) => {
   }
 
 
-
-
-
-
-// fetching id's from db
-onValue(dbRef, (snapshot) => {
-    const data = snapshot.val();
-    const taskIDs = Object.keys(data); // Get all keys (IDs) from the data
-    console.log("Task IDs:", taskIDs);
-})
-
-const deleteButton = document.getElementById("delete")
-onValue(dbRef, (snapshot) => {
-    const data = snapshot.val();
-    const taskIDs = Object.keys(data); // Get all keys (IDs) from the data
-    console.log("Task IDs:", taskIDs);
-})
