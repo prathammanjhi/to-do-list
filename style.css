@@ -73,6 +73,7 @@ footer{
     margin: .5em;
 }
 
+
 #analysis{
     margin-left: .5em;
 }
@@ -84,6 +85,9 @@ footer{
     text-decoration-line: line-through;
     text-decoration-color: grey;
     color: grey;
+    /* border: 2px solid grey; */
+    /* border-radius: 1em; */
+    /* padding: 0 1em; */
 }
 
 .modifications{
@@ -91,4 +95,9 @@ footer{
 }
 .editButton{
     margin-left: 0.3125em;
+}
+.completed{
+    text-decoration-line: line-through;
+    border: 2px solid grey;
+    border-radius: 10%;
 }

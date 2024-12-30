@@ -3,45 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="login/login.css">
+    <title>Login</title>
 </head>
 <body>
-    
-    <header>
-            <h1>To Do List</h1>
-    </header>
-    <main>
-        <div class="main">
-            <section class="input">
-                    <input type="text" placeholder="what is the task boss..." id="input-text">
-                    <button id="add-task">Add</button>
-                    <button id = "analysis">Analysis</button>
-            </section>
-            <section>
-                    <ul class="list" id="ul-el" style="list-style-type: square;">
-                        <!-- <div class="functions">
-                            <input type="checkbox" id="checkbox">
-                            <p id = "task-line">test</p>
-                            </div>
-                            <div class="modifications">
-                            <button class="deleteButton"><i class="fas fa-trash"></i></button>
-                            <button class="editButton"><i class="fas fa-edit"></i></button>
-                            </div> -->
-                    </ul>
-            </section>
-        </div>  
-    </main>
-    <footer id="footer">
-        <p>Study says - Compleating your tasks gives you a dopamine kick 🤫</p>
-    </footer>
-
-    <script  type="module" src="index.js"></script>
+    <section class="sign">
+        <div class="credentials">
+            <div class="name">
+                <label for="name">Enter your Name</label><label for="name" style="color: red;">*</label>
+                <input type="text" id="name" placeholder="enter your name" required>
+            </div>
+            <div class="number">
+                <label for="number">Enter your Phone Number</label>
+                <input type="number" placeholder="enter your number">
+            </div>
+            <div class="id">
+                <label for="mail">Enter email/phone number</label><label for="name" style="color: red;">*</label>
+                <input type="email" id="mail" placeholder="enter your email" required>
+            </div>
+            <div class="auth">
+                <label for="password">Password</label><label for="name" style="color: red;">*</label>
+                <input type="password" required>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="sign-up">SIGN UP</button>
+            <a href="main.html">test</a>
+        </div>
+    </section>
+    <SECtion class="or">
+        <h1>OR</h1>
+    </SECtion>
+    <section class="login">
+        <div class="other-methods">
+            <button id="google"><img id="google-img" src="./login/login-icons/google/favicon.ico" alt="Google"></button>
+            <button id="facebook"><img id="facebook-img" src="./login/login-icons/facebook/favicon.ico" alt="facebook"></button>
+        </div>
+        <div class="mail-login">
+            <button id="mail-button"><img id="mail-img" src="./login/login-icons/mail/favicon.ico" alt="Mail"></button>
+        </div>
+    </section>
 </body>
+<script src="authenticate.js"></script>
 </html>
